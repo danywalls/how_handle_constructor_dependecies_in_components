@@ -38,3 +38,11 @@ export class BaseForm {
     });
   }
 }
+
+@Injectable()
+export class BaseFormWrapper {
+  baseForm: BaseForm;
+  constructor(public fb: FormBuilder, public http: HttpClient) {
+    this.baseForm = new BaseForm(this.fb, this.http, 'HELLO');
+  }
+}
