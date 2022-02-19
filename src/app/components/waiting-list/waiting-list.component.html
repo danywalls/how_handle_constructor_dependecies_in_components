@@ -1,9 +1,6 @@
-<form
-  [formGroup]="baseWrapper.baseForm.myform"
-  (ngSubmit)="baseWrapper.baseForm.save()"
->
+<form [formGroup]="myform" (ngSubmit)="save()">
   <h1>Waiting list</h1>
   <input type="text" formControlName="email" />
   <button>Save</button>
-  <span *ngFor="let error of baseWrapper.baseForm.errors">{{ error }}</span>
+  <span *ngFor="let error of errors">{{ error }}</span>
 </form>
