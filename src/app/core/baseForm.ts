@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
-@Injectable()
 export class BaseForm {
   errors = [];
   myform = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(public fb: FormBuilder) {
+    
+  }
   save() {
     if (!this.myform.valid) {
       this.showErrors();
