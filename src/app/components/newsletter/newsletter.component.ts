@@ -4,12 +4,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-newsletter',
   templateUrl: './newsletter.component.html',
-
 })
 export class NewsletterComponent implements OnInit {
-
-errors = [];
-  signupForm = this.fb.group({
+  errors = [];
+  newsLetterForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
   });
 
@@ -18,13 +16,15 @@ errors = [];
   ngOnInit() {}
 
   save() {
-    if (!this.signupForm.valid) {
+    if (!this.newsLetterForm.valid) {
       this.showErrors();
+    } else {
+      this.errors = [];
     }
   }
 
   showErrors() {
-    const emailError = this.signupForm.get('email').errors;
+    const emailError = this.newsLetterForm.get('email').errors;
     console.log(emailError);
     Object.keys(emailError).forEach((value) => {
       this.errors = [...value];

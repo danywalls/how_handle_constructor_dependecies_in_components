@@ -8,7 +8,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class WaitingListComponent implements OnInit {
 errors = [];
-  signupForm = this.fb.group({
+  waitingListForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
   });
 
@@ -17,13 +17,16 @@ errors = [];
   ngOnInit() {}
 
   save() {
-    if (!this.signupForm.valid) {
+    if (!this.waitingListForm.valid) {
       this.showErrors();
+    }
+    else {
+      this.errors = [];
     }
   }
 
   showErrors() {
-    const emailError = this.signupForm.get('email').errors;
+    const emailError = this.waitingListForm.get('email').errors;
     console.log(emailError);
     Object.keys(emailError).forEach((value) => {
       this.errors = [...value];
