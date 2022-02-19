@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { BaseForm } from '../../core/baseForm';
@@ -8,7 +9,7 @@ import { BaseForm } from '../../core/baseForm';
   styleUrls: ['./recovery-password.component.css'],
 })
 export class RecoveryPasswordComponent extends BaseForm {
-  constructor(public fb: FormBuilder) {
-    super(fb);
+  constructor(public fb: FormBuilder, public http: HttpClient) {
+    super(fb, http, 'HELLO');
   }
 }

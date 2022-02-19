@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -7,8 +8,12 @@ export class BaseForm {
     email: ['', [Validators.required, Validators.email]],
   });
 
-  constructor(public fb: FormBuilder) {
-    
+  constructor(
+    public fb: FormBuilder,
+    public http: HttpClient,
+    private log: string
+  ) {
+    console.log(this.log);
   }
   save() {
     if (!this.myform.valid) {
@@ -18,7 +23,13 @@ export class BaseForm {
       console.log('saving data!');
     }
   }
-
+  sendToAnalytics() {
+    return this.http
+      .post<any>('google.analytics.fake', { value: 'tracking' })
+      .subscribe(() => {
+        console.log('tracking');
+      });
+  }
   showErrors() {
     const emailError = this.myform.get('email').errors;
     console.log(emailError);

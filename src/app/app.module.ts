@@ -7,9 +7,10 @@ import { HelloComponent } from './hello.component';
 import { WaitingListComponent } from './components/waiting-list/waiting-list.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { RecoveryPasswordComponent } from './components/recovery-password/recovery-password.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   declarations: [
     AppComponent,
     HelloComponent,

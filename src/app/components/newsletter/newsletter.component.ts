@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BaseForm } from '../../core/baseForm';
@@ -7,7 +8,8 @@ import { BaseForm } from '../../core/baseForm';
   templateUrl: './newsletter.component.html',
 })
 export class NewsletterComponent extends BaseForm {
-  constructor(public fb: FormBuilder) {
-    super(fb);
+  constructor(public fb: FormBuilder, public http: HttpClient) {
+    super(fb, http, 'HELLO');
+    this.sendToAnalytics();
   }
 }
