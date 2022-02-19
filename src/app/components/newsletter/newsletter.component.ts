@@ -5,7 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   selector: 'app-newsletter',
   templateUrl: './newsletter.component.html',
 })
-export class NewsletterComponent implements OnInit {
+export class NewsletterComponent  {
   errors = [];
   newsLetterForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -13,7 +13,7 @@ export class NewsletterComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {}
+
 
   save() {
     if (!this.newsLetterForm.valid) {
