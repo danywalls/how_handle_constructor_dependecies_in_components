@@ -4,10 +4,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-waiting-list',
   templateUrl: './waiting-list.component.html',
-
 })
 export class WaitingListComponent implements OnInit {
-errors = [];
+  errors = [];
   waitingListForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
   });
@@ -19,9 +18,9 @@ errors = [];
   save() {
     if (!this.waitingListForm.valid) {
       this.showErrors();
-    }
-    else {
+    } else {
       this.errors = [];
+      console.log('saving data!');
     }
   }
 
@@ -32,5 +31,4 @@ errors = [];
       this.errors = [...value];
     });
   }
-
 }

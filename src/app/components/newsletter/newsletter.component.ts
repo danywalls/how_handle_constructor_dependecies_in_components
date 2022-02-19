@@ -20,6 +20,7 @@ export class NewsletterComponent implements OnInit {
       this.showErrors();
     } else {
       this.errors = [];
+      console.log('saving data!')
     }
   }
 
