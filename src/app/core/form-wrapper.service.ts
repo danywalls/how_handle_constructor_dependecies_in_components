@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractFormWrapper } from './abstract-form-wrapper';
 import { BaseForm } from './baseForm';
 
 @Injectable()
-export class FormWrapperService {
+export class FormWrapperService implements AbstractFormWrapper {
   public myform: FormGroup;
 
   public get errors(): string[] {
@@ -19,9 +20,6 @@ export class FormWrapperService {
   save(form: FormGroup): boolean {
     this._baseForm.myform = form;
     this._baseForm.save();
-    if (this._baseForm.errors.length > 0) {
-      return false;
-    }
-    return true;
+    return this._baseForm.errors.length === 0;
   }
 }

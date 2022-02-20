@@ -32,9 +32,9 @@ export class BaseForm {
   }
   showErrors() {
     const emailError = this.myform.get('email').errors;
-    console.log(emailError);
+
     Object.keys(emailError).forEach((value) => {
-      this.errors = [...value];
+      this.errors = [value];
     });
   }
 }

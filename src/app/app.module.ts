@@ -9,6 +9,7 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
 import { RecoveryPasswordComponent } from './components/recovery-password/recovery-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormWrapperService } from './core/form-wrapper.service';
+import { FormWrapperTrackingService } from './core/form-wrapper-tracking.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
@@ -19,7 +20,7 @@ import { FormWrapperService } from './core/form-wrapper.service';
     NewsletterComponent,
     RecoveryPasswordComponent,
   ],
-  providers: [FormWrapperService],
+  providers: [FormWrapperService, FormWrapperTrackingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
