@@ -7,7 +7,7 @@ import { BaseForm } from './baseForm';
 export class FormWrapperService {
   public myform: FormGroup;
 
-  public get bar(): string[] {
+  public get errors(): string[] {
     return this._baseForm.errors;
   }
   private _baseForm: BaseForm;
@@ -15,5 +15,13 @@ export class FormWrapperService {
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this._baseForm = new BaseForm(this.fb, this.http, 'A');
     this.myform = this._baseForm.myform;
+  }
+  save(form: FormGroup): boolean {
+    this._baseForm.myform = form;
+    this._baseForm.save();
+    if (this._baseForm.errors.length > 0) {
+      return false;
+    }
+    return true;
   }
 }

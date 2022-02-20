@@ -11,7 +11,7 @@ export class BaseForm {
   constructor(
     public fb: FormBuilder,
     public http: HttpClient,
-    private log: string
+    public log: string
   ) {
     console.log(this.log);
   }

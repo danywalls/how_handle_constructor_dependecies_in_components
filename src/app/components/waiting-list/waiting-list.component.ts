@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BaseForm } from '../../core/baseForm';
+import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { FormWrapperService } from '../../core/form-wrapper.service';
 
 @Component({
@@ -10,9 +8,13 @@ import { FormWrapperService } from '../../core/form-wrapper.service';
 })
 export class WaitingListComponent {
   myform: FormGroup;
-  errors: [];
+  errors = [];
   constructor(private formWrapper: FormWrapperService) {
     this.myform = formWrapper.myform;
   }
-  save() {}
+  save() {
+    if (!this.formWrapper.save(this.myform)) {
+      this.errors = this.formWrapper.errors;
+    }
+  }
 }
